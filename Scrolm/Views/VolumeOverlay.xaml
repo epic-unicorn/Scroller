@@ -1,0 +1,45 @@
+﻿<Window xmlns:my="clr-namespace:Scroller.Views"  x:Class="Scroller.Views.VolumeOverlay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converter="clr-namespace:Scroller.Converters"
+        Title="VolumeOverlay" Height="600" Width="600" Name="volumeOverlay" 
+        ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Background="Transparent" AllowsTransparency="True" Topmost="True">
+
+    <Window.Resources>
+        <converter:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <converter:BooleanToVisibilityConverter x:Key="invertedBooleanToVisibilityConverter" TrueValue="Collapsed" FalseValue="Visible" />
+    </Window.Resources>   
+    
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <my:CircularProgressBar 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            StrokeThickness="100" 
+            SegmentColor="#FFEBEBEB" 
+            Percentage="100" 
+            Radius="60" />
+        
+        <my:CircularProgressBar 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Percentage="{Binding Volume}" 
+            SegmentColor="{StaticResource MahApps.Brushes.Accent}" 
+            StrokeThickness="30"            
+            Radius="80" />
+
+        <Label 
+            Content="{Binding VolumePercentage}" 
+            Visibility="{Binding Mute, Converter={StaticResource invertedBooleanToVisibilityConverter}}" 
+            FontSize="32" 
+            FontWeight="Bold"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center" 
+             />
+        
+        <Image 
+            Source="../Resources/muted.png" 
+            Width="48" Height="48" 
+            Visibility="{Binding Mute, Converter={StaticResource booleanToVisibilityConverter}}"/>
+    </Grid>
+    
+</Window>
