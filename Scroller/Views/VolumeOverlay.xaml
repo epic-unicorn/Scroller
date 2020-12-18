@@ -8,6 +8,11 @@
     <Window.Resources>
         <converter:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" TrueValue="Visible" FalseValue="Collapsed" />
         <converter:BooleanToVisibilityConverter x:Key="invertedBooleanToVisibilityConverter" TrueValue="Collapsed" FalseValue="Visible" />
+
+        <Style x:Key="RobotoFontStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Resources/Roboto-Regular.ttf"/>
+            <Setter Property="Foreground" Value="#666666" />
+        </Style>
     </Window.Resources>   
     
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -15,23 +20,24 @@
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             StrokeThickness="100" 
-            SegmentColor="#FFEBEBEB" 
+            SegmentColor="#e2e2e2" 
             Percentage="100" 
-            Radius="60" />
+            Radius="20" />
         
         <my:CircularProgressBar 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             Percentage="{Binding Volume}" 
-            SegmentColor="{StaticResource MahApps.Brushes.Accent}" 
+            SegmentColor="{StaticResource MahApps.Brushes.Accent3}" 
             StrokeThickness="30"            
             Radius="80" />
 
         <Label 
             Content="{Binding VolumePercentage}" 
             Visibility="{Binding Mute, Converter={StaticResource invertedBooleanToVisibilityConverter}}" 
-            FontSize="32" 
-            FontWeight="Bold"
+            FontSize="42" 
+            Background="#e2e2e2"
+            Style="{StaticResource RobotoFontStyle}"
             VerticalAlignment="Center"
             HorizontalAlignment="Center" 
              />

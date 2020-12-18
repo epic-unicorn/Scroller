@@ -185,6 +185,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Roboto-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\close.png">
