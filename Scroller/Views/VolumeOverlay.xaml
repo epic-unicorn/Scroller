@@ -11,7 +11,7 @@
 
         <Style x:Key="RobotoFontStyle" TargetType="Label">
             <Setter Property="FontFamily" Value="Resources/Roboto-Regular.ttf"/>
-            <Setter Property="Foreground" Value="#666666" />
+            <Setter Property="Foreground" Value="#333333" />
         </Style>
     </Window.Resources>   
     
@@ -19,8 +19,8 @@
         <my:CircularProgressBar 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
-            StrokeThickness="100" 
-            SegmentColor="#e2e2e2" 
+            StrokeThickness="80" 
+            SegmentColor="#80e2e2e2" 
             Percentage="100" 
             Radius="20" />
         
@@ -29,14 +29,13 @@
             VerticalAlignment="Center" 
             Percentage="{Binding Volume}" 
             SegmentColor="{StaticResource MahApps.Brushes.Accent3}" 
-            StrokeThickness="30"            
-            Radius="80" />
+            StrokeThickness="50"            
+            Radius="100" />
 
         <Label 
             Content="{Binding VolumePercentage}" 
             Visibility="{Binding Mute, Converter={StaticResource invertedBooleanToVisibilityConverter}}" 
-            FontSize="42" 
-            Background="#e2e2e2"
+            FontSize="32" 
             Style="{StaticResource RobotoFontStyle}"
             VerticalAlignment="Center"
             HorizontalAlignment="Center" 
