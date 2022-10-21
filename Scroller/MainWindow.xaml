@@ -19,7 +19,7 @@
 
         <StackPanel Grid.Row="0" Margin="10">
             <TextBlock Text="Usage" Margin="0,0,0,10" FontSize="18" />
-            <TextBlock Text="Use ALT-key and mouse wheel to control your volume." />
+            <TextBlock ><Run Text="Use "/><Run Language="nl-nl" Text="SHIFT"/><Run Text="-key and mouse wheel to control your volume."/></TextBlock>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Margin="10">           

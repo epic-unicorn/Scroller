@@ -137,7 +137,7 @@ namespace Scroller.ViewModels
 
         private void OnKeyReleased(object sender, KeyEventArgs e)
         {
-            if (Keyboard.Modifiers == ModifierKeys.Alt)
+            if (Keyboard.Modifiers == ModifierKeys.Shift)
             {
                 m_VolumeOverlay.Hide();
             }
@@ -145,7 +145,7 @@ namespace Scroller.ViewModels
 
         private void OnMouseWheelActivity(object sender, MouseEventArgs mouseEventArgs)
         {
-            if (Keyboard.Modifiers == ModifierKeys.Alt)
+            if (Keyboard.Modifiers == ModifierKeys.Shift)
             {
                 var mouseEventExtArgs = mouseEventArgs as MouseEventExtArgs;
                 if (mouseEventExtArgs != null)

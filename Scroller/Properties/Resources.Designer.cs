@@ -71,7 +71,7 @@ namespace Scroller.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User &lt;ALT&gt; and mouse scroll wheel to control volume..
+        ///   Looks up a localized string similar to User &lt;SHIFT&gt; and mouse scroll wheel to control volume..
         /// </summary>
         internal static string TrayIconText {
             get {
