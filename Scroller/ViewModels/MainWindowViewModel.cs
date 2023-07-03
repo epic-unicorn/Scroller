@@ -63,22 +63,14 @@ namespace Scroller.ViewModels
             }
         }
 
-        private string m_selectedHotKey = Properties.Settings.Default.SelectedHotkey;
-        public string SelectedHotkey
-        {
-            get { return m_selectedHotKey; }
-            set
-            {
-                if (m_selectedHotKey != value)
-                {
-                    m_selectedHotKey = value;
-                    OnPropertyChanged("SelectedHotkey");
+        public ModifierKeys[] AvailableModifierKeys => new ModifierKeys[] {
+          ModifierKeys.Shift,
+          ModifierKeys.Alt,
+          ModifierKeys.Control,
+          ModifierKeys.Windows
+        };
 
-                    Properties.Settings.Default.SelectedHotkey = value;
-                    Properties.Settings.Default.Save();
-                }
-            }
-        }
+        public ModifierKeys SelectedModifierKey { get; set; }
 
         public string VolumePercentage
         {
@@ -145,6 +137,8 @@ namespace Scroller.ViewModels
 
             m_VolumeOverlay.DataContext = this;
             m_VolumeOverlay.Hide();
+
+            SelectedModifierKey = AvailableModifierKeys[0];
         }
 
         void OnAudioNotification(object sender, AudioVolumeNotificationEventArgs e)
@@ -154,7 +148,7 @@ namespace Scroller.ViewModels
 
         private void OnKeyReleased(object sender, KeyEventArgs e)
         {
-            if (Keyboard.Modifiers == ModifierKeys.Shift)
+            if (Keyboard.Modifiers == SelectedModifierKey)
             {
                 m_VolumeOverlay.Hide();
             }
@@ -162,7 +156,7 @@ namespace Scroller.ViewModels
 
         private void OnMouseWheelActivity(object sender, MouseEventArgs mouseEventArgs)
         {
-            if (Keyboard.Modifiers == ModifierKeys.Shift)
+            if (Keyboard.Modifiers == SelectedModifierKey)
             {
                 var mouseEventExtArgs = mouseEventArgs as MouseEventExtArgs;
                 if (mouseEventExtArgs != null)

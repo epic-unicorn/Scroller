@@ -58,17 +58,6 @@ namespace Scroller.Properties {
                 this["VolumeStepValue"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("LSHIFT")]
-        public string SelectedHotkey {
-            get {
-                return ((string)(this["SelectedHotkey"]));
-            }
-            set {
-                this["SelectedHotkey"] = value;
-            }
-        }
+
     }
 }
