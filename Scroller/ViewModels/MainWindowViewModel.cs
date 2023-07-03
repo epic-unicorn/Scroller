@@ -63,6 +63,23 @@ namespace Scroller.ViewModels
             }
         }
 
+        private string m_selectedHotKey = Properties.Settings.Default.SelectedHotkey;
+        public string SelectedHotkey
+        {
+            get { return m_selectedHotKey; }
+            set
+            {
+                if (m_selectedHotKey != value)
+                {
+                    m_selectedHotKey = value;
+                    OnPropertyChanged("SelectedHotkey");
+
+                    Properties.Settings.Default.SelectedHotkey = value;
+                    Properties.Settings.Default.Save();
+                }
+            }
+        }
+
         public string VolumePercentage
         {
             get { return string.Format("{0}%", Math.Round(m_VolumeManager.CurrentVolume() * 100, 0)); }

@@ -1,29 +1,31 @@
 ﻿<mah:MetroWindow  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Scroller.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                  xmlns:Converters="clr-namespace:Scroller.Converters"
-                      Title="Scroller" Height="271" Width="486" Closing="WindowClosing" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Scroller="clr-namespace:Scroller"
+                  xmlns:converter="clr-namespace:Scroller.Converters"
+                  Title="Scroller" Height="300" Width="486" Closing="WindowClosing" 
         StateChanged="WindowStateChanged" Name="ScrollerWindow" Icon="Resources\icon.ico" 
         SaveWindowPosition="True" WindowStyle="SingleBorderWindow" 
         ShowMaxRestoreButton="False" WindowState="Normal">
 
     <Grid>
         <Grid.Resources>
-            <Converters:EnumBooleanConverter x:Key="enumBooleanConverter"/>
-        </Grid.Resources>
-        
+            <converter:EnumBooleanConverter x:Key="enumBooleanConverter"/>        </Grid.Resources>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Margin="10">
-            <TextBlock Text="Usage" Margin="0,0,0,10" FontSize="18" />
-            <TextBlock ><Run Text="Use "/><Run Language="nl-nl" Text="SHIFT"/><Run Text="-key and mouse wheel to control your volume."/></TextBlock>
-        </StackPanel>
-
         <StackPanel Grid.Row="1" Margin="10">           
             <TextBlock Text="Options" Margin="0,0,0,10" FontSize="18" />
+            <Grid Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Selected hotkey" Grid.Column="0" VerticalAlignment="Center"/>
+                <ComboBox Grid.Column="1" />
+            </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
